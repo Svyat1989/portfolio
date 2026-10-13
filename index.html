@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Портфолио веб-разработчика Евгения Липина. Верстка, WordPress, адаптивный дизайн.">
+    <title>Евгений Липин | Веб-разработчик</title>
+    
+    <!-- Подключение Google Fonts: Montserrat для заголовков, Roboto для текста -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* 1. Базовый сброс стилей для предсказуемого отображения */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 2. Основные настройки типографики и фона */
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* 3. Адаптивный контейнер с использованием vw для боковых отступов */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5vw;
+        }
+
+        /* 4. Шапка профиля */
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            background-color: #fff;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        header h1 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem); /* Адаптивный размер шрифта */
+            color: #2c3e50;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 5. Секция проектов на Flexbox */
+        .projects-section {
+            padding: 4rem 0;
+        }
+
+        .projects-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem; /* Современный способ управления отступами */
+        }
+
+        /* 6. Карточка проекта */
+        /* Карточка проекта — делаем её flex-колонкой */
+        .project-card {
+        flex: 1 1 300px;
+        max-width: 380px;
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+
+        /*  Добавляем эти две строки */
+        display: flex;
+        flex-direction: column;
+        }
+        
+        /* Изображения в карточках — делаем одинаковой высоты */
+        .project-card figure {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 220px;        /* Фиксированная высота */
+            object-fit: cover;     /* Обрезает лишнее, сохраняя пропорции */
+            display: block;
+        }
+        /* Контент карточки — растягиваем на всё свободное место */
+        .project-card__content {
+        padding: 1.5rem;
+
+        /*  Добавляем эту строку */
+        flex-grow: 1;
+        }
+
+        .project-card__content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card__content p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-card__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            background-color: #eef2f5;
+            color: #2c3e50;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* 8. Подвал */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            background-color: #2c3e50;
+            color: #fff;
+        }
+
+        footer a {
+            color: #fec;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Евгений Липин</h1>
+            <p>Junior Web Developer & WordPress Specialist</p>
+            <p style="margin-top: 1rem; font-size: 0.95rem;">
+                Создаю адаптивные, семантически верные и быстрые сайты. 
+                Владею HTML, CSS, JavaScript и основами SEO. 
+                Ответственно подхожу к задачам и постоянно развиваюсь.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <section class="projects-section">
+            <div class="container">
+                <h2>Мои проекты</h2>
+                
+                <div class="projects-grid">
+                    
+                    <!-- Проект 1 -->
+                    <article class="project-card">
+                        <figure>
+                            <!-- Замените src на путь к вашему скриншоту, например: img/webstartlab.jpg -->
+                            <img src="site1.png" alt="Скриншот сайта Передовая стоматология">
+                            <figcaption style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">Сайт стоматологической клиники</figcaption>
+                        </figure>
+                        <div class="project-card__content">
+                            <h3>Передовая стоматология</h3>
+                            <p>Лендинг для клиники в Перми. Семантическая верстка, адаптивный дизайн и акцент на удобство записи к специалистам.</p>
+                            <div class="project-card__tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">Flexbox</span>
+                                <span class="tag">SEO-база</span>
+                            </div>
+                        </div>
+                        <a href="https://webstartlab.ru" target="_blank" style="display: block; text-align: center; padding: 1rem; background: #2c3e50; color: #fff; text-decoration: none; font-weight: 500;">Посмотреть сайт →</a>
+                    </article>
+
+                    <!-- Проект 2 -->
+                    <article class="project-card">
+                        <figure>
+                            <img src="site2.png" alt="Скриншот сайта автосервиса DrivePro">
+                        </figure>
+                        <div class="project-card__content">
+                            <h3>DrivePro Auto</h3>
+                            <p>Сайт автосервиса с гарантией. Четкая иерархия заголовков, адаптивные сетки услуг и яркие призывы к действию (CTA).</p>
+                            <div class="project-card__tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS3</span>
+                                <span class="tag">Адаптивность</span>
+                                <span class="tag">WordPress</span>
+                            </div>
+                        </div>
+                        <a href="https://drivepro-auto.ru" target="_blank" style="display: block; text-align: center; padding: 1rem; background: #2c3e50; color: #fff; text-decoration: none; font-weight: 500;">Посмотреть сайт →</a>
+                    </article>
+
+                    <!-- Проект 3 -->
+                    <article class="project-card">
+                        <figure>
+                            <img src="site3.png" alt="Скриншот каталога суккулентов Маленький сад">
+                        </figure>
+                        <div class="project-card__content">
+                            <h3>Маленький сад</h3>
+                            <p>Каталог-витрина магазина суккулентов. Использование figure/figcaption, гибкая сетка товаров и визуальная легкость.</p>
+                            <div class="project-card__tags">
+                                <span class="tag">HTML5</span>
+                                <span class="tag">CSS Grid/Flex</span>
+                                <span class="tag">UI/UX</span>
+                                <span class="tag">WordPress</span>
+                            </div>
+                        </div>
+                        <a href="https://littlesad.ru" target="_blank" style="display: block; text-align: center; padding: 1rem; background: #2c3e50; color: #fff; text-decoration: none; font-weight: 500;">Посмотреть сайт →</a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Готов к новым задачам и стажировке!</p>
+            <p style="margin-top: 1rem;">
+                Связаться со мной: 
+                <a href="mailto:your.email@example.com">teis1989@gmail.com</a> | 
+                <a href="https://t.me/your_telegram" target="_blank">89194545035</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
